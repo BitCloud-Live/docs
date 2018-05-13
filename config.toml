@@ -2,3 +2,28 @@ baseURL = "/docs"
 languageCode = "en-us"
 title = "UVCloud documentations"
 theme = "docdock"
+
+[params]
+	# General information
+    editURL = "https://github.com/uvcloud/docs/edit/master/content/"
+	description = "UVCloud"
+    disableNavChevron = true
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[[menu.shortcuts]]
+pre = "<hr>"
+name = "<i class='fa fa-github'></i> Github repo"
+url = "https://github.com/uvcloud"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-twitter'></i> Twitter"
+url = "https://twitter.com/uvcloud"
+weight = 20
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-slack'></i> Slack"
+url = "https://uvcloud.slack.com/messages/public"
+weight = 30
