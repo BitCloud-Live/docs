@@ -1,0 +1,4 @@
+baseURL = "uvcloud.github.io/docs"
+languageCode = "en-us"
+title = "UVCloud documentations"
+theme = "docuapi"
