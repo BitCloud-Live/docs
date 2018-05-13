@@ -3,6 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/docs/quickstart/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/quickstart/hub/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/_header/</loc>
+  </url>
+  
+  <url>
     <loc>/docs/categories/</loc>
     <priority>0</priority>
   </url>
@@ -14,7 +26,6 @@
   
   <url>
     <loc>/docs/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
