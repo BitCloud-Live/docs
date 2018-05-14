@@ -1,41 +1,41 @@
 [
 {
-	"uri": "/docs/quickstart/",
+	"uri": "/quickstart/",
 	"title": "Quickstart",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/docs/quickstart/hub/",
+	"uri": "/quickstart/hub/",
 	"title": "Using docker hub",
 	"tags": [],
 	"description": "",
 	"content": " How to use UVCloud docker hub Open up your terminal/cmd and login into docker using your uvcloud credentials.\nSee the below asciinema video for details:\n\n"
 },
 {
-	"uri": "/docs/_header/",
+	"uri": "/_header/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": " UVCloud "
 },
 {
-	"uri": "/docs/categories/",
+	"uri": "/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/docs/tags/",
+	"uri": "/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "/docs/",
+	"uri": "/",
 	"title": "UVCloud",
 	"tags": [],
 	"description": "",

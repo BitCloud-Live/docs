@@ -3,29 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/docs/quickstart/</loc>
+    <loc>/quickstart/</loc>
   </url>
   
   <url>
-    <loc>/docs/quickstart/hub/</loc>
+    <loc>/quickstart/hub/</loc>
   </url>
   
   <url>
-    <loc>/docs/_header/</loc>
+    <loc>/_header/</loc>
   </url>
   
   <url>
-    <loc>/docs/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/docs/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/docs/</loc>
+    <loc>/</loc>
   </url>
   
 </urlset>

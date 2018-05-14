@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>UVCloud on UVCloud documentations</title>
-    <link>/docs/</link>
+    <link>/</link>
     <description>Recent content in UVCloud on UVCloud documentations</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using docker hub</title>
-      <link>/docs/quickstart/hub/</link>
+      <link>/quickstart/hub/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/quickstart/hub/</guid>
+      <guid>/quickstart/hub/</guid>
       <description>How to use UVCloud docker hub Open up your terminal/cmd and login into docker using your uvcloud credentials.
 See the below asciinema video for details:</description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/_header/</link>
+      <link>/_header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/_header/</guid>
+      <guid>/_header/</guid>
       <description> UVCloud </description>
     </item>
     
