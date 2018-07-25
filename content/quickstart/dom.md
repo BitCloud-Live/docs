@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Domain
+title: Quickstart Domain
 weight: 2
 ---
 # Quickstart: Domain
