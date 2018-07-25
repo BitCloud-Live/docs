@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "UVCloud documentations"
-theme = "hugo-material-docs"
+theme = "docdock"
 
 [params]
 # General information
