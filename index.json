@@ -4,7 +4,14 @@
 	"title": "Quickstart",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "See the below asciinema video for details: \n"
+},
+{
+	"uri": "/quickstart/dom/",
+	"title": "Quickstart Domain",
+	"tags": [],
+	"description": "",
+	"content": " Quickstart: Domain See the below asciinema video for details:\n\n"
 },
 {
 	"uri": "/quickstart/hub/",
