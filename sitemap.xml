@@ -15,6 +15,14 @@
   </url>
   
   <url>
+    <loc>/quickstart/upgrade/</loc>
+  </url>
+  
+  <url>
+    <loc>/quickstart/vcap/</loc>
+  </url>
+  
+  <url>
     <loc>/_header/</loc>
   </url>
   
