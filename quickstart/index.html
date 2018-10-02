@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.40.3" />
 
-<title>Quickstart :: UVCloud documentations</title>
+<title>Start using the cli :: UVCloud documentations</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -75,14 +75,14 @@ UVCloud
     <li data-nav-id="/quickstart/" class="dd-item parent active haschildren
         ">
       <div>
-      <a href="/quickstart/">Quickstart</a>
+      <a href="/quickstart/">Start using the cli</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/quickstart/dom/" class="dd-item">
         <div>
           <a href="/quickstart/dom/">
-            Quickstart Domain
+            External domains
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
@@ -144,7 +144,7 @@ UVCloud
 
 
 
- <a href='/'>UVCloud</a> > Quickstart
+ <a href='/'>UVCloud</a> > Start using the cli
 
  
 
@@ -155,7 +155,23 @@ UVCloud
     
     <div class="progress">
         <div class="wrapper">
-    
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#uv-cli">uv-cli</a></li>
+<li><a href="#how-to-build-using-make">How to build using make</a></li>
+<li><a href="#prebuilt-binaries">Prebuilt binaries</a>
+<ul>
+<li><a href="#quick-installationgit-rebase">Quick installationgit rebase</a>
+<ul>
+<li><a href="#osx">OSX</a></li>
+<li><a href="#linux">Linux</a></li>
+<li><a href="#windows">Windows</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#quickstart">Quickstart</a></li>
+<li><a href="#gitlab-integration">Gitlab integration</a></li>
+</ul>
+</nav>
         </div>
     </div>
     
@@ -165,7 +181,7 @@ UVCloud
 
 <div id="body-inner">
   
-    <h1>Quickstart</h1>
+    <h1>Start using the cli</h1>
   
 
 
@@ -174,8 +190,106 @@ UVCloud
     
     
 
-<p>See the below asciinema video for details:
-<a href="https://asciinema.org/a/193296"><img src="https://asciinema.org/a/193296.png" alt="asciicast" /></a></p>
+
+
+<h1 id="uv-cli">uv-cli</h1>
+
+<p>UVCloud cli</p>
+
+<h1 id="how-to-build-using-make">How to build using make</h1>
+
+<pre><code class="language-sh">$ make clean
+$ make -B build
+</code></pre>
+
+<h1 id="prebuilt-binaries">Prebuilt binaries</h1>
+
+<p>Common platform binaries are published on the releases page. this includes linux, osx, windows and even arm binary for arm  linux platforms such as raspbian.</p>
+
+<h2 id="quick-installationgit-rebase">Quick installationgit rebase</h2>
+
+<h3 id="osx">OSX</h3>
+
+<pre><code class="language-sh">$ wget https://github.com/uvcloud/uv-cli/releases/download/V2.1.0/uv-V2.1.0-darwin-amd64 -O /usr/local/bin/uv
+</code></pre>
+
+<h3 id="linux">Linux</h3>
+
+<pre><code class="language-sh">$ sudo wget https://github.com/uvcloud/uv-cli/releases/download/V2.1.0/uv-V2.1.0-linux-amd64 -O /usr/local/bin/uv
+$ sudo chmod +x /usr/local/bin/uv
+</code></pre>
+
+<h3 id="windows">Windows</h3>
+
+<p>Just grap the latest executive file in release page and run it from cmd.<br />
+See <a href="https://github.com/uvcloud/uv-cli/releases">Releases</a>.</p>
+
+<h1 id="quickstart">Quickstart</h1>
+
+<p><a href="https://asciinema.org/a/193296"><img src="https://asciinema.org/a/193296.png" alt="asciicast" /></a>
+See <a href="http://docs.uvcloud.ir/quickstart/">Documentations</a> for more details.</p>
+
+<h1 id="gitlab-integration">Gitlab integration</h1>
+
+<p>Test, build &amp; deploy can be automated using gitlab ci.<br />
+An example of .gitlab-ci.yaml configuration file is as follow:</p>
+
+<pre><code class="language-yaml"># This file is a template, and might need editing before it works on your project.
+# Official docker image.
+image: docker:latest
+services:
+  - docker:dind
+  
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  LINK: controller.uvcloud.ir:8443
+  #Configure this variable in Secure Variables:
+  UVCLOUD_USER: &lt;username&gt;
+  # UVCLOUD_PASSWORD:  ----&gt; It's more secure to be setted from settings -&gt; ci/cd -&gt; variables. 
+  APP: rec
+  IMAGE: &quot;hub.uvcloud.ir/$UVCLOUD_USER/$APP:$CI_COMMIT_REF_NAME&quot;
+
+# Test stages
+test1:
+  stage: test
+  before_script: []
+  script:
+    - echo run tests
+
+test2:
+  stage: test
+  before_script: []
+  script:
+    - echo run tests
+
+
+# Build stages
+before_script:
+   - docker login -u &quot;$UVCLOUD_USER&quot; -p &quot;$UVCLOUD_PASSWORD&quot; hub.uvcloud.ir
+
+build-master:
+
+  stage: build
+  script:
+    - docker build --pull -t &quot;$IMAGE&quot; .
+    - docker push &quot;$IMAGE&quot;
+  only:
+    - master # use `tags` for build when ever a new tag pushed to the repository
+
+deploy: 
+  image: hub.uvcloud.ir/uvcloud/uv-cli:V2.0.0-rc7
+  stage: deploy
+  before_script:
+    - echo $UVCLOUD_PASSWORD | uv-cli login -u $UVCLOUD_USER
+    - uv-cli app:info -n $APP
+  script:
+    - &quot;uv-cli app:configSet -n $APP  -i $IMAGE&quot;
+    - &quot;uv-cli app:info -n $APP&quot;
+</code></pre>
 
 
 
@@ -189,7 +303,7 @@ UVCloud
 
 <div id="navigation">
 <a class="nav nav-prev" href="/" title="UVCloud"> <i class="fa fa-chevron-left"></i><label>UVCloud</label></a>
-    <a class="nav nav-next" href="/quickstart/dom/" title="Quickstart Domain" style="margin-right: 0px;"><label>Quickstart Domain</label><i class="fa fa-chevron-right"></i></a></div>
+    <a class="nav nav-next" href="/quickstart/dom/" title="External domains" style="margin-right: 0px;"><label>External domains</label><i class="fa fa-chevron-right"></i></a></div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

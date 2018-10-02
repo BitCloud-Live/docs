@@ -1,17 +1,17 @@
 [
 {
 	"uri": "/quickstart/",
-	"title": "Quickstart",
+	"title": "Start using the cli",
 	"tags": [],
 	"description": "",
-	"content": "See the below asciinema video for details: \n"
+	"content": " uv-cli UVCloud cli\nHow to build using make $ make clean $ make -B build  Prebuilt binaries Common platform binaries are published on the releases page. this includes linux, osx, windows and even arm binary for arm linux platforms such as raspbian.\nQuick installationgit rebase OSX $ wget https://github.com/uvcloud/uv-cli/releases/download/V2.1.0/uv-V2.1.0-darwin-amd64 -O /usr/local/bin/uv  Linux $ sudo wget https://github.com/uvcloud/uv-cli/releases/download/V2.1.0/uv-V2.1.0-linux-amd64 -O /usr/local/bin/uv $ sudo chmod +x /usr/local/bin/uv  Windows Just grap the latest executive file in release page and run it from cmd.\nSee Releases.\nQuickstart  See Documentations for more details.\nGitlab integration Test, build \u0026amp; deploy can be automated using gitlab ci.\nAn example of .gitlab-ci.yaml configuration file is as follow:\n# This file is a template, and might need editing before it works on your project. # Official docker image. image: docker:latest services: - docker:dind stages: - test - build - deploy variables: LINK: controller.uvcloud.ir:8443 #Configure this variable in Secure Variables: UVCLOUD_USER: \u0026lt;username\u0026gt; # UVCLOUD_PASSWORD: ----\u0026gt; It's more secure to be setted from settings -\u0026gt; ci/cd -\u0026gt; variables. APP: rec IMAGE: \u0026quot;hub.uvcloud.ir/$UVCLOUD_USER/$APP:$CI_COMMIT_REF_NAME\u0026quot; # Test stages test1: stage: test before_script: [] script: - echo run tests test2: stage: test before_script: [] script: - echo run tests # Build stages before_script: - docker login -u \u0026quot;$UVCLOUD_USER\u0026quot; -p \u0026quot;$UVCLOUD_PASSWORD\u0026quot; hub.uvcloud.ir build-master: stage: build script: - docker build --pull -t \u0026quot;$IMAGE\u0026quot; . - docker push \u0026quot;$IMAGE\u0026quot; only: - master # use `tags` for build when ever a new tag pushed to the repository deploy: image: hub.uvcloud.ir/uvcloud/uv-cli:V2.0.0-rc7 stage: deploy before_script: - echo $UVCLOUD_PASSWORD | uv-cli login -u $UVCLOUD_USER - uv-cli app:info -n $APP script: - \u0026quot;uv-cli app:configSet -n $APP -i $IMAGE\u0026quot; - \u0026quot;uv-cli app:info -n $APP\u0026quot;  "
 },
 {
 	"uri": "/quickstart/dom/",
-	"title": "Quickstart Domain",
+	"title": "External domains",
 	"tags": [],
 	"description": "",
-	"content": " Quickstart: Domain See the below asciinema video for details:\n\n"
+	"content": " Start using external domains See the below asciinema video for details:\n\n"
 },
 {
 	"uri": "/quickstart/hub/",
@@ -46,5 +46,5 @@
 	"title": "UVCloud",
 	"tags": [],
 	"description": "",
-	"content": " Reserato mollia Et duo adnuat atque muta premeret Lorem markdownum tamen, iam ferunt querno, indiciique Iovis ab temptanti umquam loquendi te fidem Idaeumque et. Nocti ita Sabina optat, tempore, lumen properatis stare, repugnat celeremque.\nPheneon saepe. Cultos sanguine.\nOpis erant, fas obstitit Ausoniis amorem, eras festum curribus et nomina possum Penthea. Ordine foedera: meae dis procul quoque lunaria silicem se pavor liquores. Trabes et amor protervis quosque. Galea componit inportunusque sunt collibus solacia dumque catenas patefecit adlevet. Feroxque sub pavido venit dixisse: grave cum e mollit caespes tamquam, ut?\n Vincere penset Pro augebat esset erit terror suas Phene meruistis spiritus elidite Sperat pactaque pectus invasit sed caerula antemnas Levata somnum te et Aiax voto fuit His et mens quondam sinistro apud  Illius postquam operire artus trahit ignesque De suspirat pelagi labores ausorum Arctos et magni ut torusque, utroque? Cum huc geminos quaeris!\nif (telecommunications_beta_system.queueDaw.mask(favorites( rtf_compression_input, 100))) { bios_smb = ssh_heat; } else { uatWhiteCell(ascii_dongle, refreshOutput); keyUserCache = web - traceroute.default(retina, lossless, popFilenameIsp); word_mount = ipvSsidDomain; } var applet_reader = uddi_internet.passive(searchDigital, tracerouteBluetoothAccess(ftpSo + 1, -2, disk), outputMtuLion.transistor(copyrightDefault, 4 - driver_circuit_ascii, key)); if (file_piconet(character_ip, ocr - tag, ipMemoryBitrate) == 1) { cableMatrix(wins, png.pptp_panel(frequency, 2)); } pc_guid_internal -= hackerBoot(mediaLanguage + 18 + driveVolume + 1);  Et signa imoque soluti, vel tenebrisque pectora Telamon Hippotades. Dabit da tempore nigrior levati, vineta: tum ora ferrum latitans arcitenens! Deus veli quid augur tela pater tollere cupressu Talia: ac: contagia.\nAntiquas acceptior videt munere arbore quae expulsi rexerit tollere rigidum comitem resonantia volucrem, non. Parva monitusque fuisses ambit sextae, debes unda sacra in aliae tantus civilique.\nPoteras Dianae furiosaque semine timuitque ullo adspexerit alium, labi tantum pignora, prece. Necis torserat stantem: Chromis lingua; creatas ora relevasse futuri vacant levabas pudet, da poterit et patent. Et tuum saeva pariter, calathis sine tumulo sine temptamenta orbus, circumvolat! Nitens nec esse cornus pronuba quam!\n"
+	"content": "See Quickstart\n"
 }]
