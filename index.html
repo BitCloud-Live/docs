@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.40.3" />
 
-<title>UVCloud :: UVCloud documentations</title>
+<title>Quickstart :: UVCloud documentations</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -72,42 +72,6 @@ UVCloud
             <li data-nav-id="/" class="dd-item">
             <a href="/"><i class="fa fa-fw fa-home"></i></a>
             </li>
-    <li data-nav-id="/quickstart/" class="dd-item haschildren
-        ">
-      <div>
-      <a href="/quickstart/">Quickstart</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
-      </div>
-        <ul>
-      <li data-nav-id="/quickstart/dom/" class="dd-item">
-        <div>
-          <a href="/quickstart/dom/">
-            External domains
-          </a><i class="fa fa-circle-thin read-icon"></i>
-        </div>
-    </li>
-      <li data-nav-id="/quickstart/hub/" class="dd-item">
-        <div>
-          <a href="/quickstart/hub/">
-            Using docker hub
-          </a><i class="fa fa-circle-thin read-icon"></i>
-        </div>
-    </li>
-      <li data-nav-id="/quickstart/upgrade/" class="dd-item">
-        <div>
-          <a href="/quickstart/upgrade/">
-            How to upgrade app docker image
-          </a><i class="fa fa-circle-thin read-icon"></i>
-        </div>
-    </li>
-      <li data-nav-id="/quickstart/vcap/" class="dd-item">
-        <div>
-          <a href="/quickstart/vcap/">
-            Start using vcap services
-          </a><i class="fa fa-circle-thin read-icon"></i>
-        </div>
-    </li>
-        </ul>
-    </li>
 
 
 
@@ -149,6 +113,14 @@ UVCloud
  
 
 
+<h1 id="how-to-build-uv-cli-using-make">How to build uv cli using make</h1>
+
+<pre><code class="language-sh">$ make clean
+$ make -B build
+</code></pre>
+
+<h1 id="prebuilt-binaries">Prebuilt binaries</h1>
+
 <p>Common platform binaries are published on the releases page. this includes linux, osx, windows and even arm binary for arm  linux platforms such as raspbian.</p>
 
 <h2 id="quick-installation">Quick installation</h2>
@@ -174,6 +146,68 @@ See <a href="https://github.com/uvcloud/uv-cli/releases">Releases</a>.</p>
 <p><a href="https://asciinema.org/a/193296"><img src="https://asciinema.org/a/193296.png" alt="asciicast" /></a>
 See <a href="http://docs.uvcloud.ir/quickstart/">Documentations</a> for more details.</p>
 
+<h1 id="gitlab-integration">Gitlab integration</h1>
+
+<p>Test, build &amp; deploy can be automated using gitlab ci.<br />
+An example of .gitlab-ci.yaml configuration file is as follow:</p>
+
+<pre><code class="language-yaml"># This file is a template, and might need editing before it works on your project.
+# Official docker image.
+image: docker:latest
+services:
+  - docker:dind
+  
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  LINK: controller.uvcloud.ir:8443
+  #Configure this variable in Secure Variables:
+  UVCLOUD_USER: &lt;username&gt;
+  # UVCLOUD_PASSWORD:  ----&gt; It's more secure to be setted from settings -&gt; ci/cd -&gt; variables. 
+  APP: rec
+  IMAGE: &quot;hub.uvcloud.ir/$UVCLOUD_USER/$APP:$CI_COMMIT_REF_NAME&quot;
+
+# Test stages
+test1:
+  stage: test
+  before_script: []
+  script:
+    - echo run tests
+
+test2:
+  stage: test
+  before_script: []
+  script:
+    - echo run tests
+
+
+# Build stages
+before_script:
+   - docker login -u &quot;$UVCLOUD_USER&quot; -p &quot;$UVCLOUD_PASSWORD&quot; hub.uvcloud.ir
+
+build-master:
+
+  stage: build
+  script:
+    - docker build --pull -t &quot;$IMAGE&quot; .
+    - docker push &quot;$IMAGE&quot;
+  only:
+    - master # use `tags` for build when ever a new tag pushed to the repository
+
+deploy: 
+  image: hub.uvcloud.ir/uvcloud/uv-cli:V2.0.0-rc7
+  stage: deploy
+  before_script:
+    - echo $UVCLOUD_PASSWORD | uv-cli login -u $UVCLOUD_USER
+    - uv-cli app:info -n $APP
+  script:
+    - &quot;uv-cli app:configSet -n $APP  -i $IMAGE&quot;
+    - &quot;uv-cli app:info -n $APP&quot;
+</code></pre>
+
 
 
 
@@ -186,7 +220,7 @@ See <a href="http://docs.uvcloud.ir/quickstart/">Documentations</a> for more det
 </div>
 
 <div id="navigation">
-<a class="nav nav-next" href="/quickstart/" title="Quickstart" style="margin-right: 0px;"><label>Quickstart</label><i class="fa fa-chevron-right"></i></a></div>
+</div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

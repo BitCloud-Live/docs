@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>UVCloud on UVCloud documentations</title>
+    <title>Quickstart on UVCloud documentations</title>
     <link>/</link>
-    <description>Recent content in UVCloud on UVCloud documentations</description>
+    <description>Recent content in Quickstart on UVCloud documentations</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -12,39 +12,39 @@
     
     <item>
       <title>External domains</title>
-      <link>/quickstart/dom/</link>
+      <link>/dom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/quickstart/dom/</guid>
+      <guid>/dom/</guid>
       <description>Start using external domains See the below asciinema video for details:</description>
     </item>
     
     <item>
       <title>Using docker hub</title>
-      <link>/quickstart/hub/</link>
+      <link>/hub/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/quickstart/hub/</guid>
+      <guid>/hub/</guid>
       <description>How to use UVCloud docker hub Open up your terminal/cmd and login into docker using your uvcloud credentials.
 See the below asciinema video for details:</description>
     </item>
     
     <item>
       <title>How to upgrade app docker image</title>
-      <link>/quickstart/upgrade/</link>
+      <link>/upgrade/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/quickstart/upgrade/</guid>
+      <guid>/upgrade/</guid>
       <description>Workflow  Requirements  Docker installation follow this instructions UV cli installation latest osx/linux binaries   Now go to the app working directory
 $ uv --version uv version v2.0.0-alpha.1 $ uv login Username: &amp;lt;username&amp;gt; Password: *** Login succesful $ uv app:list INFO[0000] services:&amp;lt;updated:&amp;lt;seconds:1537813897 &amp;gt; state:Up name:&amp;quot;&amp;lt;username&amp;gt;&amp;quot; &amp;gt; $ uv app:info -n &amp;lt;app&amp;gt; # look after Config: image:&amp;quot;xxx:v0.3.2&amp;quot; INFO[0000] Config: image:&amp;quot;hub.uvcloud.ir/&amp;lt;username&amp;gt;/&amp;lt;app-image&amp;gt;:v0.3.2&amp;quot; minScale:1 port:8080 routes:&amp;quot;&amp;lt;app&amp;gt;.uvapps.io&amp;quot; endpointType:&amp;quot;http&amp;quot; INFO[0000] Created: seconds:1537793986 ,	Updated: seconds:1537813897 INFO[0000] VCAP_SERVICES: { &amp;quot;postgresql&amp;quot;: [ { &amp;quot;name&amp;quot;: &amp;quot;my-pg&amp;quot;, &amp;quot;label&amp;quot;: &amp;quot;postgresql&amp;quot;, &amp;quot;tags&amp;quot;: null, &amp;quot;plan&amp;quot;: &amp;quot;starter&amp;quot;, &amp;quot;credentials&amp;quot;: { &amp;quot;database&amp;quot;: &amp;quot;postgres&amp;quot;, &amp;quot;host&amp;quot;: &amp;quot;my-pg&amp;quot;, &amp;quot;password&amp;quot;: &amp;quot;xxx&amp;quot;, &amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, &amp;quot;uri&amp;quot;: &amp;quot;postgresql://postgres:xxx@my-pg:5432/postgres&amp;quot;, &amp;quot;username&amp;quot;: &amp;quot;postgres&amp;quot; } } ] INFO[0000] Environment variables: None $ # now pull app latest version and check tags $ git pull --rebase $ git tag v0.</description>
     </item>
     
     <item>
       <title>Start using vcap services</title>
-      <link>/quickstart/vcap/</link>
+      <link>/vcap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/quickstart/vcap/</guid>
+      <guid>/vcap/</guid>
       <description>VCAP_SERVICES For bindable services, UVCloud adds connection details to the VCAP_SERVICES environment variable after binding a service instance to your application.
 The results are returned as a JSON document that contains an object for each service for which one or more instances are bound to the application. The service object contains a child object for each service instance of that service that is bound to the application. The attributes that describe a bound service are defined in the table below.</description>
     </item>
