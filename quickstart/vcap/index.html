@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.40.3" />
 
-<title>Using docker hub :: UVCloud documentations</title>
+<title>Start using vcap services :: UVCloud documentations</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 
     
   </head>
-  <body data-url="/posts/hub/">
+  <body data-url="/quickstart/vcap/">
     
       <div id="headermain"></div>
 <nav id="sidebar" class="showVisitedLinks">
@@ -72,37 +72,37 @@ UVCloud
             <li data-nav-id="/" class="dd-item">
             <a href="/"><i class="fa fa-fw fa-home"></i></a>
             </li>
-    <li data-nav-id="/posts/" class="dd-item parent haschildren
+    <li data-nav-id="/quickstart/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/posts/">Posts</a>
+      <a href="/quickstart/">Quickstarts</a>
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/posts/dom/" class="dd-item">
+      <li data-nav-id="/quickstart/dom/" class="dd-item">
         <div>
-          <a href="/posts/dom/">
+          <a href="/quickstart/dom/">
             External domains
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/posts/hub/" class="dd-item active">
+      <li data-nav-id="/quickstart/hub/" class="dd-item">
         <div>
-          <a href="/posts/hub/">
+          <a href="/quickstart/hub/">
             Using docker hub
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/posts/upgrade/" class="dd-item">
+      <li data-nav-id="/quickstart/upgrade/" class="dd-item">
         <div>
-          <a href="/posts/upgrade/">
+          <a href="/quickstart/upgrade/">
             How to upgrade app docker image
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-      <li data-nav-id="/posts/vcap/" class="dd-item">
+      <li data-nav-id="/quickstart/vcap/" class="dd-item active">
         <div>
-          <a href="/posts/vcap/">
+          <a href="/quickstart/vcap/">
             Start using vcap services
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
@@ -141,7 +141,7 @@ UVCloud
       
       
     <div id="top-github-link">
-      <a class="github-link" href="https://github.com/uvcloud/docs/edit/master/content/posts/hub.md" target="blank">
+      <a class="github-link" href="https://github.com/uvcloud/docs/edit/master/content/quickstart/vcap.md" target="blank">
         <i class="fa fa-code-fork"></i>
         Improve this page
       </a>
@@ -161,7 +161,7 @@ UVCloud
 
 
 
- <a href='/'>Quickstart</a> > <a href='/posts/'>Posts</a> > Using docker hub
+ <a href='/'>Quickstart</a> > <a href='/quickstart/'>Quickstarts</a> > Start using vcap services
 
  
 
@@ -176,7 +176,7 @@ UVCloud
         <div class="wrapper">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#how-to-use-uvcloud-docker-hub">How to use UVCloud docker hub</a></li>
+<li><a href="#vcap-services">VCAP_SERVICES</a></li>
 </ul>
 </nav>
         </div>
@@ -188,7 +188,7 @@ UVCloud
 
 <div id="body-inner">
   
-    <h1>Using docker hub</h1>
+    <h1>Start using vcap services</h1>
   
 
 
@@ -198,13 +198,68 @@ UVCloud
     
     
 
-<h1 id="how-to-use-uvcloud-docker-hub">How to use UVCloud docker hub</h1>
+<h1 id="vcap-services">VCAP_SERVICES</h1>
 
-<p>Open up your terminal/cmd and login into docker using your uvcloud credentials.</p>
+<p>For bindable services, UVCloud adds connection details to the VCAP_SERVICES environment variable after binding a service instance to your application.</p>
 
-<p>See the below asciinema video for details:</p>
+<p>The results are returned as a JSON document that contains an object for each service for which one or more instances are bound to the application. The service object contains a child object for each service instance of that service that is bound to the application. The attributes that describe a bound service are defined in the table below.</p>
 
-<p><a href="https://asciinema.org/a/181258"><img src="https://asciinema.org/a/181258.png" alt="asciicast" /></a></p>
+<p>The key for each service in the JSON document is the same as the value of the “label” attribute.</p>
+
+<p>Attribute   Description
+binding_name    The name assigned to the service binding by the user.
+instance_name   The name assigned to the service instance by the user.
+name    The binding_name if it exists; otherwise the instance_name.
+label   The name of the service offering.
+tags    An array of strings an app can use to identify a service instance.
+plan    The service plan selected when the service instance was created.
+credentials A JSON object containing the service-specific credentials needed to access the service instance.</p>
+
+<p>The example below shows the value of VCAP_SERVICES for bound instances of several services available in the Pivotal Web Services Marketplace.</p>
+
+<p>VCAP_SERVICES=</p>
+
+<pre><code class="language-json">{
+  &quot;elephantsql&quot;: [
+    {
+      &quot;name&quot;: &quot;elephantsql-binding-c6c60&quot;,
+      &quot;binding_name&quot;: &quot;elephantsql-binding-c6c60&quot;,
+      &quot;instance_name&quot;: &quot;elephantsql-c6c60&quot;,
+      &quot;label&quot;: &quot;elephantsql&quot;,
+      &quot;tags&quot;: [
+        &quot;postgres&quot;,
+        &quot;postgresql&quot;,
+        &quot;relational&quot;
+      ],
+      &quot;plan&quot;: &quot;turtle&quot;,
+      &quot;credentials&quot;: {
+        &quot;uri&quot;: &quot;postgres://exampleuser:examplepass@babar.elephantsql.com:5432/exampleuser&quot;
+      }
+    }
+  ],
+  &quot;sendgrid&quot;: [
+    {
+      &quot;name&quot;: &quot;mysendgrid&quot;,
+      &quot;binding_name&quot;: null,
+      &quot;instance_name&quot;: &quot;mysendgrid&quot;,
+      &quot;label&quot;: &quot;sendgrid&quot;,
+      &quot;tags&quot;: [
+        &quot;smtp&quot;
+      ],
+      &quot;plan&quot;: &quot;free&quot;,
+      &quot;credentials&quot;: {
+        &quot;hostname&quot;: &quot;smtp.sendgrid.net&quot;,
+        &quot;username&quot;: &quot;QvsXMbJ3rK&quot;,
+        &quot;password&quot;: &quot;HCHMOYluTv&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<p>Of course there is some libraries out there for handle VCAP_SERVICES more smoothly, such as:<br />
+<a href="https://www.npmjs.com/package/vcap_services">https://www.npmjs.com/package/vcap_services</a> for Nodejs<br />
+<a href="https://pypi.org/project/vcap-services/">https://pypi.org/project/vcap-services/</a> for python</p>
 
 
     
@@ -216,8 +271,8 @@ UVCloud
 </div>
 
 <div id="navigation">
-<a class="nav nav-prev" href="/posts/dom/" title="External domains"> <i class="fa fa-chevron-left"></i><label>External domains</label></a>
-    <a class="nav nav-next" href="/posts/upgrade/" title="How to upgrade app docker image" style="margin-right: 0px;"><label>How to upgrade app docker image</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/quickstart/upgrade/" title="How to upgrade app docker image"> <i class="fa fa-chevron-left"></i><label>How to upgrade app docker image</label></a>
+    <a class="nav nav-next" href="/quickstart/dom/" title="External domains" style="margin-right: 0px;"><label>External domains</label><i class="fa fa-chevron-right"></i></a></div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">

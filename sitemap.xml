@@ -7,19 +7,19 @@
   </url>
   
   <url>
-    <loc>/posts/dom/</loc>
+    <loc>/quickstart/dom/</loc>
   </url>
   
   <url>
-    <loc>/posts/hub/</loc>
+    <loc>/quickstart/hub/</loc>
   </url>
   
   <url>
-    <loc>/posts/upgrade/</loc>
+    <loc>/quickstart/upgrade/</loc>
   </url>
   
   <url>
-    <loc>/posts/vcap/</loc>
+    <loc>/quickstart/vcap/</loc>
   </url>
   
   <url>
@@ -32,7 +32,7 @@
   </url>
   
   <url>
-    <loc>/posts/</loc>
+    <loc>/quickstart/</loc>
     <priority>0</priority>
   </url>
   
