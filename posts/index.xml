@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Quickstart on UVCloud documentations</title>
-    <link>/</link>
-    <description>Recent content in Quickstart on UVCloud documentations</description>
+    <title>Posts on UVCloud documentations</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on UVCloud documentations</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -47,15 +47,6 @@ $ uv --version uv version v2.0.0-alpha.1 $ uv login Username: &amp;lt;username&a
       <guid>/posts/vcap/</guid>
       <description>VCAP_SERVICES For bindable services, UVCloud adds connection details to the VCAP_SERVICES environment variable after binding a service instance to your application.
 The results are returned as a JSON document that contains an object for each service for which one or more instances are bound to the application. The service object contains a child object for each service instance of that service that is bound to the application. The attributes that describe a bound service are defined in the table below.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/_header/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/_header/</guid>
-      <description> UVCloud </description>
     </item>
     
   </channel>

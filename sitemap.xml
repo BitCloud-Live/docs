@@ -7,19 +7,19 @@
   </url>
   
   <url>
-    <loc>/dom/</loc>
+    <loc>/posts/dom/</loc>
   </url>
   
   <url>
-    <loc>/hub/</loc>
+    <loc>/posts/hub/</loc>
   </url>
   
   <url>
-    <loc>/upgrade/</loc>
+    <loc>/posts/upgrade/</loc>
   </url>
   
   <url>
-    <loc>/vcap/</loc>
+    <loc>/posts/vcap/</loc>
   </url>
   
   <url>
@@ -28,6 +28,11 @@
   
   <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
     <priority>0</priority>
   </url>
   

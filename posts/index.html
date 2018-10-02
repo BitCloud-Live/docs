@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="generator" content="Hugo 0.40.3" />
 
-<title>Categories :: UVCloud documentations</title>
+<title>Posts :: UVCloud documentations</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 
     
   </head>
-  <body data-url="/categories/">
+  <body data-url="/posts/">
     
       <div id="headermain"></div>
 <nav id="sidebar" class="showVisitedLinks">
@@ -72,10 +72,11 @@ UVCloud
             <li data-nav-id="/" class="dd-item">
             <a href="/"><i class="fa fa-fw fa-home"></i></a>
             </li>
-    <li data-nav-id="/posts/" class="dd-item haschildren
+    <li data-nav-id="/posts/" class="dd-item parent active haschildren
         ">
       <div>
-      <a href="/posts/">Posts</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/posts/">Posts</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/posts/dom/" class="dd-item">
@@ -135,7 +136,10 @@ UVCloud
 <div class="padding highlightable">
 
   <div id="top-bar">
-    <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+    
+      
+      
+      <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
         <span id="sidebar-toggle-span">
           <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
             <i class="fa fa-bars"></i>
@@ -145,7 +149,12 @@ UVCloud
         <span class="links">
         
 
- Categories
+
+
+
+ <a href='/'>Quickstart</a> > Posts
+
+ 
 
    
         </span>
@@ -164,7 +173,7 @@ UVCloud
 
 <div id="body-inner">
   
-    <h1>Categories</h1>
+    <h1>Posts</h1>
   
 
 
@@ -178,19 +187,90 @@ UVCloud
 <div class="extra-pagination inner">
 <nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 of 0</span>
+	<span class="page-number">Page 1 of 1</span>
 	
 </nav>
 
 </div>
 
 
+   <article class="post posts">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/posts/dom/">External domains</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Start using external domains See the below asciinema video for details: <a class="read-more" href="/posts/dom/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+   <article class="post posts">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/posts/hub/">Using docker hub</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>How to use UVCloud docker hub Open up your terminal/cmd and login into docker using your uvcloud credentials.
+See the below asciinema video for details: <a class="read-more" href="/posts/hub/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+   <article class="post posts">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/posts/upgrade/">How to upgrade app docker image</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Workflow  Requirements  Docker installation follow this instructions UV cli installation latest osx/linux binaries   Now go to the app working directory
+$ uv --version uv version v2.0.0-alpha.1 $ uv login Username: &lt;username&gt; Password: *** Login succesful $ uv app:list INFO[0000] services:&lt;updated:&lt;seconds:1537813897 &gt; state:Up name:&quot;&lt;username&gt;&quot; &gt; $ uv app:info -n &lt;app&gt; # look after Config: image:&quot;xxx:v0.3.2&quot; INFO[0000] Config: image:&quot;hub.uvcloud.ir/&lt;username&gt;/&lt;app-image&gt;:v0.3.2&quot; minScale:1 port:8080 routes:&quot;&lt;app&gt;.uvapps.io&quot; endpointType:&quot;http&quot; INFO[0000] Created: seconds:1537793986 ,	Updated: seconds:1537813897 INFO[0000] VCAP_SERVICES: { &quot;postgresql&quot;: [ { &quot;name&quot;: &quot;my-pg&quot;, &quot;label&quot;: &quot;postgresql&quot;, &quot;tags&quot;: null, &quot;plan&quot;: &quot;starter&quot;, &quot;credentials&quot;: { &quot;database&quot;: &quot;postgres&quot;, &quot;host&quot;: &quot;my-pg&quot;, &quot;password&quot;: &quot;xxx&quot;, &quot;port&quot;: &quot;5432&quot;, &quot;uri&quot;: &quot;postgresql://postgres:xxx@my-pg:5432/postgres&quot;, &quot;username&quot;: &quot;postgres&quot; } } ] INFO[0000] Environment variables: None $ # now pull app latest version and check tags $ git pull --rebase $ git tag v0. <a class="read-more" href="/posts/upgrade/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+   <article class="post posts">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/posts/vcap/">Start using vcap services</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>VCAP_SERVICES For bindable services, UVCloud adds connection details to the VCAP_SERVICES environment variable after binding a service instance to your application.
+The results are returned as a JSON document that contains an object for each service for which one or more instances are bound to the application. The service object contains a child object for each service instance of that service that is bound to the application. The attributes that describe a bound service are defined in the table below. <a class="read-more" href="/posts/vcap/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
 
 <div style="margin-bottom:2rem"></div>
 
 <nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 of 0</span>
+	<span class="page-number">Page 1 of 1</span>
 	
 </nav>
 
@@ -206,7 +286,8 @@ UVCloud
 </div>
 
 <div id="navigation">
-<a class="nav nav-next" href="/posts/" title="Posts" style="margin-right: 0px;"><label>Posts</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/" title="Quickstart"> <i class="fa fa-chevron-left"></i><label>Quickstart</label></a>
+    <a class="nav nav-next" href="/posts/dom/" title="External domains" style="margin-right: 0px;"><label>External domains</label><i class="fa fa-chevron-right"></i></a></div>
 
 </section>
 <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
