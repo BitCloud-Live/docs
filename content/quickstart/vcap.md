@@ -1,6 +1,6 @@
 ---
 title: Start using vcap services
-weight: 3
+weight: 4
 ---
 
 # VCAP_SERVICES
